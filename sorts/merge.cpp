@@ -19,53 +19,53 @@ const ll mod = 1e9+7;
 
 ll pw(ll a, ll b, ll md = mod){ll res = 1;while(b){if(b&1){res=(a*res)%md;}a=(a*a)%md;b>>=1;}return(res);}
 
-vector<int> merge_sort(vector<int>& v, int n) {
-    if (n == 1) return v;
+int n;
+int a[maxn], b[maxn];
 
-    vector<int> ans, left, right;
-    for (int i = 0; i < n / 2; i++)
-        left.push_back(v[i]);
-    for (int i = n / 2; i < n; i++)
-        right.push_back(v[i]);
+void merge(int l, int mid, int r) {
+    int i = l, j = mid, k = l;
 
-    left = merge_sort(left, n / 2);
-    right = merge_sort(right, (n + 1) / 2);
-
-    auto l = left.begin(), r = right.begin();
-
-    while (l < left.end() && r != right.end()) {
-        if (*l > *r) {
-            ans.push_back(*r);
-            r++;
+    while (i < mid && j < r) {
+        if (a[i] > a[j]) {
+            b[k++] = a[j++];
         } else {
-            ans.push_back(*l);
-            l++;
+            b[k++] = a[i++];
         }
     }
-    while (r != right.end()) {
-        ans.push_back(*r);
-        r++;
+
+    while (j < r) {
+        b[k++] = a[j++];
     }
-    while (l != left.end()) {
-        ans.push_back(*l);
-        l++;
+    
+    while (i < mid) {
+        b[k++] = a[i++];
     }
-    return ans;
+
+    for (int c = l; c < r; c++)
+        a[c] = b[c];
+}
+
+void merge_sort(int l, int r) {
+    if (r - l <= 1) return;
+    int mid = (l + r) / 2;
+
+    merge_sort(l, mid);
+    merge_sort(mid, r);
+
+    merge(l, mid, r);
 }
 
 int32_t main(){
     cin.tie(0)->sync_with_stdio(0);
     
-    int n;
-    vector<int> v(maxn);
     cin >> n;
     for (int i = 0; i < n; i++)
-        cin >> v[i];
+        cin >> a[i];
 
-    v = merge_sort(v, n);
+    merge_sort(0, n);
 
-    for (auto i : v)
-        cout << i << " ";
+    for (int i = 0; i < n; i++)
+        cout << a[i] << " ";
     cout << endl;
 
 	return(0);

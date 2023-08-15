@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <cstdlib>
 
 using namespace std;
 
@@ -20,51 +19,42 @@ const ll mod = 1e9+7;
 
 ll pw(ll a, ll b, ll md = mod){ll res = 1;while(b){if(b&1){res=(a*res)%md;}a=(a*a)%md;b>>=1;}return(res);}
 
-void quick_sort(vector<int>& v, int n) {
-    if (n <= 1) return;
-    auto x = rand() % n;
-    vector<int> res, left, right;
-    int left_size = 0, right_size = 0;
-    for (int i = 0; i < n; i++) {
-        if (i == x) continue;
-        if (v[i] < v[x]) {
-            left.push_back(v[i]);
-            left_size++;
+int n;
+int a[maxn], b[maxn];
+
+int part(int l, int r) {
+    int last = a[r], g = l - 1;
+    for (int i = l; i < r; i++) {
+        if (a[i] <= last) {
+            g++;
+            swap(a[i], a[g]);
         }
     }
-    for (int i = 0; i < n; i++) {
-        if (i == x) continue;
-        if (v[i] >= v[x]) {
-            right.push_back(v[i]);
-            right_size++;
-        }
-    }
+    
+    swap(a[++g], a[r]);
+    return g;
+}
 
-    quick_sort(left, left_size);
-    quick_sort(right, right_size);
+void quick_sort(int l = 0, int r = n -1) {
+    if (l >= r) return;
 
-    for (int i = 0; i < left_size; i++)
-        res.push_back(left[i]);
-    res.push_back(v[x]);
-    for (int i = 0; i < right_size; i++)
-        res.push_back(right[i]);
+    int p = part(l, r);
 
-    v = res;
+    quick_sort(l, p - 1);
+    quick_sort(p + 1, r);
 }
 
 int32_t main(){
     cin.tie(0)->sync_with_stdio(0);
 
-    int n;
-    vector<int> v(maxn);
     cin >> n;
     for (int i = 0; i < n; i++)
-        cin >> v[i];
+        cin >> a[i];
 
-    quick_sort(v, n);
+    quick_sort();
 
-    for (auto i : v)
-        cout << i << " ";
+    for (int i = 0; i < n; i++)
+        cout << a[i] << " ";
     cout << endl;
 
 	return(0);
