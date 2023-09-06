@@ -1,7 +1,6 @@
 ﻿# Introduction to Data Structures and Algorithms
 
 ## Course Information
-<hr>
 
 - Course Duration: 14 sessions + 1 offline bonus session
 - Instructor: [Soroush Sahraei](https://github.com/sahroush)
@@ -9,14 +8,12 @@
 - Language: C++
 
 ## Prerequisites
-<hr>
 
 - Basic C++ knowledge (or at least being active enough to self-study)
 - Basic knowledge of recursion
 - Konkour-level Graph theory knowledge
 
 ## Learning Objectives
-<hr>
 
 In this course, students will learn:
 
@@ -34,7 +31,6 @@ In this course, students will learn:
 - Basic graph traversal algorithms (BFS and DFS)
 
 ## Course Outline
-<hr>
 
 ### Entrance Exam:
 
@@ -153,7 +149,6 @@ I'll be discussing some techniques that utilize stacks, queues and doubly ended 
 These techniques include but are not limited to the "Nearest Smaller Element", "Sliding Window Minimum" and related problems.
 
 ## Course Materials
-<hr>
 
 ### Tutorials
 
@@ -185,13 +180,11 @@ These techniques include but are not limited to the "Nearest Smaller Element", "
 - [Principles](https://usaco.guide/PAPS.pdf)[ ](https://usaco.guide/PAPS.pdf)[of](https://usaco.guide/PAPS.pdf)[ ](https://usaco.guide/PAPS.pdf)[Algorithmic](https://usaco.guide/PAPS.pdf)[ ](https://usaco.guide/PAPS.pdf)[Problem-Solving](https://usaco.guide/PAPS.pdf)
 
 ## Attendance Policy
-<hr>
 
 - Since the course is presented in both traditional and online manners,
 absentees can view the recorded files of the online class.
 
 ## Academic Honesty Policy
-<hr>
 
 - Academic dishonesty includes, but is not limited to, plagiarism,
 cheating on exams or assignments, falsifying data, submitting work
@@ -201,7 +194,5 @@ completed by someone else, and collaborating on assignments without permission.
 - On their third offense, violators will be suspended from the course.
 
 ## Additional info
-<hr>
 
 - Extra tasks (harder/easier) will be available for students throughout the course.
-
