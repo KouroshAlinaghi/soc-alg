@@ -4,7 +4,8 @@
 <hr>
 
 - Course Duration: 14 sessions + 1 offline bonus session
-- Instructor: Soroush Sahraei
+- Instructor: [Soroush Sahraei](https://github.com/sahroush)
+- Mentor: [Erfan Mirshams](https://github.com/erfan-mirshams)
 - Language: C++
 
 ## Prerequisites
