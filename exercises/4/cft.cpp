@@ -1,0 +1,95 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+typedef long double ld;
+typedef pair<int , int> pii;
+
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+const int maxn = 3e6;
+const ll mod = 1e9+7;
+
+#define pb push_back
+#define endl '\n'
+#define dokme(x) cout << x , exit(0)
+#define ms(x , y) memset(x , y , sizeof x)
+#define print(x) cout << x << endl
+
+ll pw(ll a, ll b, ll md = mod){ll res = 1;while(b){if(b&1){res=(a*res)%md;}a=(a*a)%md;b>>=1;}return(res);}
+
+int n, m;
+int mat[504][504];
+vector<pair<bool, pii>> meow;
+
+// 0 => .
+// -1 => #
+// 100 => B
+// 200 => R
+
+bool can_r(int x, int y) {
+}
+
+int32_t main(){
+    cin.tie(0)->sync_with_stdio(0);
+
+    cin >> n >> m;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            char c;
+            cin >> c;
+            mat[i][j] = c == '.' ? 0 : -1;
+        }
+    }
+
+    ll ans = 0;
+    bool first = true;
+    for (int i = 1; i <= n; i++) {
+        first = true;
+        for (int j = 1; j <= m; j++) {
+            if (first) {
+                mat[i][j] = 100;
+                meow.pb({false, {i, j}});
+                ans++;
+            } else {
+                if (mat[i][j] == -1) {
+                    first = true;
+                } else {
+                    first = false;
+                    mat[i][j] = 200;
+                    meow.pb({true, {i, j}});
+                    ans++;
+                }
+            }
+        }
+    }
+
+    first = true;
+    for (int j = 1; j <= m; j++) {
+        for (int i = 1; i <= n; i++) {
+            if (first) {
+                mat[i][j] = 100;
+                meow.pb({false, {i, j}});
+                ans++;
+            } else {
+                if (mat[i][j] == -1) {
+                    first = true;
+                } else {
+                    first = false;
+                    mat[i][j] = 200;
+                    meow.pb({true, {i, j}});
+                    ans++;
+                }
+            }
+        }
+    }
+
+    print(ans);
+    for (auto p : meow) {
+        cout << (p.first ? "R " : "B ") << p.second.first << " " << p.second.second << endl;
+    }
+
+	return(0);
+}
+

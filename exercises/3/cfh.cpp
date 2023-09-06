@@ -19,21 +19,13 @@ const ll mod = 1e9+7;
 
 ll pw(ll a, ll b, ll md = mod){ll res = 1;while(b){if(b&1){res=(a*res)%md;}a=(a*a)%md;b>>=1;}return(res);}
 
-int n;
-
-string rec(ll i) {
-    string out = to_string(i);
-    if (i >= pw(2, n - 1)) return out;
-    string soorat = rec(2 * i);
-    string makhraj = rec(2 * i + 1);
-    return out + "+\\frac{" + soorat + "}{" + makhraj + "}";
-}
+int n1, n2, k1, k2;
+ll dp[102][102][12][12];
 
 int32_t main(){
     cin.tie(0)->sync_with_stdio(0);
 
-    cin >> n;
-    print(rec(1));
+    cin >> n1 >> n2 >> k1 >> k2;
 
 	return(0);
 }
